@@ -1,0 +1,19 @@
+<wxs module="m1">
+  var getMax = function(num){
+    return Math.round(num / 10000)
+  }
+  module.exports.getMax = getMax
+</wxs>
+<view class="paneItem">
+  <view class="img_wrpper">
+    <view class="decorate"></view>
+    <view class="lazyload_wrapper">
+      <image class="img" src="{{item.picUrl}}"></image>
+    </view>
+    <view class="play_count">
+      <text class="iconfont icon-headset"></text>
+      <view class="count">{{m1.getMax(item.playCount)}}万</view>
+    </view>
+  </view>
+  <view class="desc">{{item.name}}</view>
+</view>

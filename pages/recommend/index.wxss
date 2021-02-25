@@ -1,0 +1,19 @@
+/* pages/recommend/index.wxss */
+.swiperContainer{
+  width: 730rpx;
+  margin: 0 auto;
+}
+.swiper-image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.recommendLists{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.recommend-item{
+  margin: 0 0.667%;
+}

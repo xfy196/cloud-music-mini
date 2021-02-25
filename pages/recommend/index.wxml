@@ -1,0 +1,22 @@
+<div class="container">
+  <!-- 轮播图 -->
+  <swiper
+  class="swiperContainer"
+  indicator-color="rgba(0, 0, 0, 0.3)"
+  indicator-active-color="#d44439"
+  indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+  >
+    <block wx:for="{{banners}}" wx:key="*this">
+          <swiper-item class="swiper-item">
+            <image class="swiper-image" src="{{item.imageUrl}}"></image>
+          </swiper-item>
+        </block>
+  </swiper>
+  <view class="content">
+    <head-title title="推荐歌单"></head-title>
+    <view class="recommendLists">
+      <recommend-item class="recommend-item" style="width: 32%"  item="{{item}}" wx:for="{{paneItems}}" wx:key="id"></recommend-item>
+    </view>
+  </view>
+</div>

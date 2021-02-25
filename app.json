@@ -1,13 +1,42 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+  "pages": [
+    "pages/recommend/index",
+    "pages/singer/index",
+    "pages/rank/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "usingComponents": {
+    "head-title": "/component/head_title/head_title"
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "云音乐",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#d44439",
+    "list": [
+      {
+        "pagePath": "pages/recommend/index",
+        "text": "推荐",
+        "iconPath": "assets/recommend.png",
+        "selectedIconPath": "assets/recommend-selected.png"
+      },
+      {
+        "pagePath": "pages/singer/index",
+        "text": "歌手",
+        "iconPath": "assets/singer.png",
+        "selectedIconPath": "assets/singer-selected.png"
+      },
+      {
+        "pagePath": "pages/rank/index",
+        "text": "排行榜",
+        "iconPath": "assets/rank.png",
+        "selectedIconPath": "assets/rank-selected.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

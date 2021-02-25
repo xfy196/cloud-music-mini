@@ -1,0 +1,7 @@
+/* components/head-title/head-title.wxss */
+.head-title{
+  font-weight: 700;
+  padding-left: 12rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
