@@ -1,2 +1,3 @@
-<!--pages/singer/index.wxml-->
-<text>pages/singer/index.wxml</text>
+<view class="container">
+  <scrollX></scrollX>
+</view>

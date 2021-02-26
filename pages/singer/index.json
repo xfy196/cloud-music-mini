@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "scrollX": "../../component/scroll/scroll"
+  }
 }

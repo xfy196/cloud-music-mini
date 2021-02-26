@@ -1,0 +1,6 @@
+<scroll-view
+scroll-x="{{scrollX}}"
+scroll-y="{{scrollY}}"
+>
+
+</scroll-view>
