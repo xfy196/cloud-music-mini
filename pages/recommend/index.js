@@ -26,12 +26,22 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  async onReady(){
+  onReady(){
+    this.initRequest()  
+  },
+
+  async initRequest(){
+    wx.showLoading({
+      title: '正在加载中',
+    })
     let bannersResult = await requets({
       url: "/banner",
       method: "GET"
     })
     if(bannersResult.code == 200){
+      wx.hideLoading({
+        success: (res) => {},
+      })
       this.setData({
         banners: bannersResult.banners
       })
@@ -42,11 +52,10 @@ Page({
     })
     if(paneResult.code === 200){
       this.setData({
-        paneItems: paneResult.result.slice(0,11)
+        paneItems: paneResult.result
       })
     }
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -72,7 +81,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.initRequest()
   },
 
   /**

@@ -1,0 +1,12 @@
+<scroll-view
+class="scrollContainer"
+style="height:{{height}}"
+scroll-with-animation="true"
+enhanced="true"
+scroll-y="{{scrollY}}"
+>
+    <view class="sItem" wx:for="{{list}}" wx:key="*this">
+      <image class="img" src="{{item.picUrl}}"></image>
+      <text class="name">{{item.name}}</text>
+    </view>
+</scroll-view>

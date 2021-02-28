@@ -1,1 +1,21 @@
-/* component/scroll/scroll.wxss */
+.scrollContainer{
+  width: 100%;
+}
+.scrollBox{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.sTitle{
+  color: gray;
+}
+.sItem{
+  flex: 0 0 auto;
+  font-size: 28rpx;
+  padding: 10rpx 10rpx;
+  border-radius: 20rpx;
+}
+.sItem.sleccted{
+  color: #d44439;
+  border: 1px solid #d44439;
+  opacity: 0.8;
+}

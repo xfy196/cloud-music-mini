@@ -1,0 +1,27 @@
+.scrollContainer{
+  width: 100%;
+}
+.scrollWrapper{
+ display: flex;
+ flex-direction: column;
+ height: 100%;
+ overflow: auto;
+}
+.sItem{
+  border-bottom: 1px solid #e4e4e4;
+  padding: 10rpx 0;
+  margin: 0 10rpx;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+.sItem .img{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+.sItem .name{
+  font-weight: 500;
+  color: #2E3030;
+  font-size: 28rpx;
+}

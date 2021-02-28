@@ -1,6 +1,6 @@
 <div class="container">
-  <!-- 轮播图 -->
-  <swiper
+  <view class="swiperWrapperBackground">
+    <swiper
   class="swiperContainer"
   indicator-color="rgba(0, 0, 0, 0.3)"
   indicator-active-color="#d44439"
@@ -13,6 +13,9 @@
           </swiper-item>
         </block>
   </swiper>
+  </view>
+  <!-- 轮播图 -->
+  
   <view class="content">
     <head-title title="推荐歌单"></head-title>
     <view class="recommendLists">

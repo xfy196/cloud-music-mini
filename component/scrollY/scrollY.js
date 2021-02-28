@@ -1,15 +1,13 @@
-// component/scroll/scroll.js
+// component/scrollY/scrollY.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
+    list: Array,
     scrollX: Boolean,
     scrollY: Boolean,
-    list: Array,
-    title: String
-  },
-  ready(){
+    height: String
   },
 
   /**

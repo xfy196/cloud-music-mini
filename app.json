@@ -1,19 +1,19 @@
 {
   "pages": [
     "pages/recommend/index",
-    "pages/singer/index",
     "pages/rank/index",
-    "component/scroll/scroll"
+    "pages/singer/index"
   ],
   "usingComponents": {
     "head-title": "/component/head_title/head_title"
   },
   "window": {
-    "backgroundTextStyle": "dark",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#d44439",
     "navigationBarTitleText": "云音乐",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#d44439"
   },
   "tabBar": {
     "color": "#333333",

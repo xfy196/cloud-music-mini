@@ -1,4 +1,7 @@
 /* pages/recommend/index.wxss */
+.swiperWrapperBackground{
+  background: #d44439;
+}
 .swiperContainer{
   width: 730rpx;
   margin: 0 auto;

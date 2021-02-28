@@ -1,1 +1,66 @@
-/* pages/rank/index.wxss */
+.officalContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 0 10rpx;
+  margin-top: 20rpx;
+}
+.officalContainer .oItem{
+  display: flex;
+  padding: 6rpx 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+.officalContainer .oItem .img_wrapper{
+  width: 200rpx;
+  height: 200rpx;
+  position: relative;
+}
+.oItem .img_wrapper image{
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+.oItem .img_wrapper .update_frequecy{
+  position: absolute;
+  bottom: 14rpx;
+  color: #f1f1f1;
+  left: 14rpx;
+  font-size: 20rpx;
+}
+.officalSongs{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20rpx;
+}
+.officalSongs .osItem{
+  color: gray;
+  font-size: 24rpx;
+}
+.globalContainer{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+  justify-content: space-evenly;
+  padding: 0 10rpx;
+}
+.globalContainer .gItem {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 6rpx 0;
+}
+.globalContainer .gItem .img_wrapper{
+  width: 240rpx;
+  height: 240rpx;
+  position: relative;
+}
+.gItem .img_wrapper image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+.gItem .update_frequecy{
+  position: absolute;
+  bottom: 14rpx;
+  color: #f1f1f1;
+  left: 14rpx;
+  font-size: 20rpx;
+}

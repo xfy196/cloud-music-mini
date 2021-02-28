@@ -1,18 +1,41 @@
 // pages/singer/index.js
+const request = require("../../utils/requets")
+const {alphaTypes, categoryTypes}  = require("../../config/config")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    artists: [],
+    alphaTypes: [],
+    categoryTypes: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  async onLoad(options) {
+    this.setData({
+      alphaTypes,
+      categoryTypes
+    })
+    let result = await request({
+      url: "/top/artists",
+      method: "GET",
+      data: {
+        offset: 0
+      }
+    })
+    if(result.code === 200){
+      this.setData({
+        artists: result.artists
+      })
+    }else{
+      wx.showToast({
+        title: '异常错误',
+      })
+    }
   },
 
   /**
@@ -62,5 +85,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
 })

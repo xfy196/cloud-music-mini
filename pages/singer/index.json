@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "scrollX": "../../component/scroll/scroll"
+    "scrollXCom": "../../component/scroll/scroll",
+    "scrollYCom": "../../component/scrollY/scrollY"
   }
 }

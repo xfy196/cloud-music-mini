@@ -1,6 +1,12 @@
 <scroll-view
 scroll-x="{{scrollX}}"
-scroll-y="{{scrollY}}"
+class="scrollContainer"
+enhanced="true"
 >
-
+<view class="scrollBox">
+  <view class="sTitle sItem">{{title}}</view>
+  <view class="sItem" wx:for="{{list}}" wx:key="key">
+    {{item.name}}
+  </view>
+</view>
 </scroll-view>

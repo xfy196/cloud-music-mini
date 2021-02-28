@@ -1,18 +1,52 @@
-// pages/rank/index.js
+const request = require("../../utils/requets.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    officalList: [],
+    globalList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  async onLoad(options) {
+    let result = await request({
+      url: "/toplist/detail",
+      method: "GET"
+    })
+    if(result.code == 200){
+      let index = this.findIndex(result.list)
+      let officalList = result.list.slice(0, index)
+      let globalList = result.list.slice(index)
+      let diff = 3 - globalList.length  % 3 
+      for(let i = 0; i < diff; i++){
+        globalList.push({})
+      }
+      this.setData({
+        officalList,
+        globalList
+      })
+    }else {
+      wx.showToast({
+        title: '异常错误，请重试',
+      })
+    }
   },
 
+  /**
+   * 找到第一个没有歌曲的下标这就是全球榜的第一个数据
+   * @param {*} rankList 
+   */
+  findIndex(rankList){
+    for(let i = 0; i < rankList.length; i++){
+      if(rankList[i].tracks.length && !rankList[i + 1].tracks.length){
+        return i + 1
+      }
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
