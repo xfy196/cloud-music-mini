@@ -1,10 +1,19 @@
 /* pages/recommend/index.wxss */
+.swiperBox{
+height: 300rpx;
+position: relative;
+}
 .swiperWrapperBackground{
+  height: 200rpx;
   background: #d44439;
 }
 .swiperContainer{
+  position: absolute;
   width: 730rpx;
-  margin: 0 auto;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  border-radius: 10rpx;
+  overflow: hidden;
 }
 .swiper-image{
   width: 100%;
