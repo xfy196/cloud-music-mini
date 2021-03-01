@@ -1,5 +1,12 @@
 .container{
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.searchContainer{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .searchHead{
   width: 100%;
@@ -53,7 +60,59 @@
 .searchResultBox{
   width: 100%;
   height: 100%;
+  flex: 1;
   background: #fff;
-  position: absolute;
   top: 80rpx;
+  display: flex;
+  flex-direction: column;
+}
+.artists{
+  display: flex;
+  align-items: center;
+  margin: 0 10rpx;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+.artists .imgBox {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 40rpx;
+}
+.artists .imgBox image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+.artists .name {
+  color: #2E3030;
+  font-weight: 500;
+  font-size: 28rpx;
+}
+.songList{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.songItem{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10rpx 0;
+  height: 120rpx;
+}
+.songItem .songName{
+  font-size: 32rpx;
+  color: #2E3030;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.songItem .songSubTitle{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #bba8a8;
+}
+.songList{
+  padding-left: 40rpx;
 }

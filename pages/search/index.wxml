@@ -1,19 +1,39 @@
 <view class="container">
   <view class="searchHead">
-    <text class="iconfont icon-back icon-fanhui"></text>
+    <text bindtap="handleBack" class="iconfont icon-back icon-fanhui"></text>
     <view class="searchInput weui-cell weui-cell_input">
-        <input confirm-type="search" bindconfirm="handleSearch" bindinput="handleSearchInput" class="weui-input" auto-focus placeholder="搜索歌曲、歌手、专辑"/>
+        <input value="{{searchValue}}" confirm-type="search" bindconfirm="handleInputSearch" bindinput="handleSearchInput" class="weui-input" auto-focus placeholder="搜索歌曲、歌手、专辑"/>
       </view>
   </view>
-  <view class="hotSearch">
+  
+  <scroll-view scroll-y="true" style="height: calc(100% -  80rpx)" class="searchContainer">
+    <view hidden="{{searchStatus}}" class="hotSearch">
     <view class="headTitle">热门搜索</view>
     <view class="hots">
-      <view class="hot" wx:for="{{hots}}" wx:key="*this">
+      <view bindtap="handleHotTap" wx:for-index="index" data-index="{{index}}" data-value="{{item.first}}" class="hot" wx:for="{{hots}}" wx:key="*this">
         {{item.first}}
       </view>
     </view>
   </view>
-  <view class="searchResultBox">
-    
+  <view hidden="{{!searchStatus}}" class="searchResultBox">
+    <view class="artists" style="display: {{searchResult.artists.length > 0 ? 'flex' : 'none' }}">
+      <view class="imgBox">
+        <image src="{{searchResult.artists[0].img1v1Url}}"></image>
+      </view>
+      <view class="name">歌手：{{searchResult.artists[0].name}}</view>
+    </view>
+    <view class="songList">
+      <view bindtap="handleClickSong" data-id="{{item.id}}" class="songItem" wx:for="{{searchResult.songs.songs}}" wx:key="*this">
+        <view class="songName">{{item.name}}</view>
+        <view class="songSubTitle">
+          <view class="songText" wx:for="{{item.artists}}" wx:for-item="artist">
+            {{artist.name}}
+          </view>
+          -
+          <view class="songText">{{item.album.name}}</view>
+        </view>
+      </view>
+    </view>
   </view>
+  </scroll-view>
 </view>

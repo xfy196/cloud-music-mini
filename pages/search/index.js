@@ -7,7 +7,9 @@ Page({
    */
   data: {
     hots: [],
-    searchResult: []
+    searchResult: [],
+    searchStatus: false,
+    searchValue: ""
   },
 
   /**
@@ -41,14 +43,17 @@ Page({
     }
     
   },
-  /**
-   * search的搜索的函数
-   */
-  handleSearchInput(e){
-    console.log(e.detail.value)
-  },
 
-  async handleSearch(e){
+  async handleSearch(value){
+    if(value === ""){
+      this.setData({
+        searchStatus: false
+      })
+      return;
+    }
+    this.setData({
+      searchValue: value
+    })
     try {
       wx.showLoading({
         title: '搜索中...',
@@ -56,29 +61,69 @@ Page({
       let searchResult = await request({
         url: "/search/suggest",
         data: {
-          keywords: e.detail.value
+          keywords: value
         },
         method: "GET"
       })
-      if(searchResult.code == 200){
-        this.setData({
-          searchResult: searchResult.result
-        })
+      let songs = await request({
+        url: "/search",
+        data: {
+          keywords: value
+        }
+      })
+      
+      if(searchResult.code == 200 && songs.code == 200){
         wx.hideLoading({
           success: (res) => {},
+        })
+        this.setData({
+          searchStatus: true,
+          searchResult: {
+            artists: searchResult.result.artists ? searchResult.result.artists : [],
+            songs: songs.result
+          }
         })
       }else {
-        wx.hideLoading({
-          success: (res) => {},
-        })
         wx.showToast({
           title: '异常错误',
         })
       }
     } catch (error) {
-      
+      wx.showToast({
+        title: '异常错误',
+      })
     }
-    
+  },
+
+  /**
+   * 返回首页
+   */
+  handleBack(){
+    this.setData({
+      searchValue: ""
+    })
+    this.handleSearch("")
+    wx.switchTab({
+      url: '/pages/recommend/index',
+    })
+  },
+
+  /**
+   * 点击歌曲
+   * @param {*} e 
+   */
+  handleClickSong(e){
+    let id = e.currentTarget.dataset.id;
+    let bgam = wx.createInnerAudioContext()
+    bgam.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
+    bgam.play()
+  },
+  handleHotTap(e){
+    this.handleSearch(e.currentTarget.dataset.value)
+  },
+
+  handleInputSearch(e){
+    this.handleSearch(e.detail.value)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
