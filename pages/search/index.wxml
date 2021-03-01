@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="searchHead">
+    <text class="iconfont icon-back icon-fanhui"></text>
+    <view class="searchInput weui-cell weui-cell_input">
+        <input confirm-type="search" bindconfirm="handleSearch" bindinput="handleSearchInput" class="weui-input" auto-focus placeholder="搜索歌曲、歌手、专辑"/>
+      </view>
+  </view>
+  <view class="hotSearch">
+    <view class="headTitle">热门搜索</view>
+    <view class="hots">
+      <view class="hot" wx:for="{{hots}}" wx:key="*this">
+        {{item.first}}
+      </view>
+    </view>
+  </view>
+  <view class="searchResultBox">
+    
+  </view>
+</view>

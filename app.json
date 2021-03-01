@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/search/index",
     "pages/recommend/index",
     "pages/rank/index",
     "pages/singer/index"
@@ -30,6 +31,12 @@
         "text": "歌手",
         "iconPath": "assets/singer.png",
         "selectedIconPath": "assets/singer-selected.png"
+      },
+      {
+        "pagePath": "pages/search/index",
+        "text": "搜索",
+        "iconPath": "assets/search.png",
+        "selectedIconPath": "assets/search-selected.png"
       },
       {
         "pagePath": "pages/rank/index",
