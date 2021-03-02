@@ -1,0 +1,18 @@
+<wxs module="m1">
+  var getMax = function(num){
+    return Math.round(num / 10000)
+  }
+  module.exports.getMax = getMax
+</wxs>
+<view class="songListContainer">
+  <view class="headBox">
+    <view style="background: url({{detail.playlist.coverImgUrl}}) left top no-repeat" class="background"></view>
+    <view class="img_wrapper">
+      <image class="image" src="{{detail.playlist.coverImgUrl}}"></image>
+      <view class="play_count">
+        <text class="iconfont icon-headset"></text>
+        <text class="count">{{m1.getMax(detail.playlist.playCount)}}万</text>
+      </view>
+    </view>
+  </view>
+</view>

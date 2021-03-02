@@ -15,7 +15,7 @@
   position: relative;
 }
 .oItem .img_wrapper image{
-  width: 100%;
+  width: 200rpx;
   height: 100%;
   border-radius: 6rpx;
 }

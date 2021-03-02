@@ -112,6 +112,9 @@
   align-items: center;
   font-size: 24rpx;
   color: #bba8a8;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .songList{
   padding-left: 40rpx;

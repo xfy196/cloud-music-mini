@@ -16,6 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '搜索歌曲',
+    })
     this.initRequest()
   },
 
@@ -28,6 +31,9 @@ Page({
         url: "/search/hot",
       })
       if(hotResult.code == 200){
+        wx.stopPullDownRefresh({
+          success: (res) => {},
+        })
         this.setData({
           hots: hotResult.result.hots
         })
@@ -113,10 +119,14 @@ Page({
    * @param {*} e 
    */
   handleClickSong(e){
-    let id = e.currentTarget.dataset.id;
-    let bgam = wx.createInnerAudioContext()
-    bgam.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
-    bgam.play()
+    let item = e.currentTarget.dataset.item
+    // let id = item.id;
+    // let bgam = wx.createInnerAudioContext()
+    // bgam.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
+    // bgam.play()
+    wx.navigateTo({
+      url: `/pages/player/index?item=${encodeURIComponent(JSON.stringify(item))}`,
+    })
   },
   handleHotTap(e){
     this.handleSearch(e.currentTarget.dataset.value)
@@ -157,7 +167,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.initRequest()
   },
 
   /**

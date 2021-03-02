@@ -1,49 +1,45 @@
-// pages/singer/index.js
+// pages/songLIst/index.js
 const request = require("../../utils/requets")
-const {alphaTypes, categoryTypes}  = require("../../config/config")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    artists: [],
-    alphaTypes: [],
-    categoryTypes: {}
+    detail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad(options) {
-    this.setData({
-      alphaTypes,
-      categoryTypes
-    })
-    this.initRequest()
+  onLoad: function (options) {
+    this.intirequest("6641254927")
   },
 
-  async initRequest(){
-    let result = await request({
-      url: "/top/artists",
-      method: "GET",
-      data: {
-        offset: 0
+  /**
+   * 初始化请求
+   */
+  async intirequest(id){
+    try {
+      let result = await request({
+        url: "/playlist/detail",
+        data : {
+          id
+        }
+      })
+      if(result.code == 200){
+        this.setData({
+          detail: {
+            playlist: result.playlist,
+            privileges: result.privileges
+          }
+        })
       }
-    })
-    if(result.code === 200){
-      wx.stopPullDownRefresh({
-        success: (res) => {},
-      })
-      this.setData({
-        artists: result.artists
-      })
-    }else{
+    } catch (error) {
       wx.showToast({
         title: '异常错误',
-      })
+      }) 
     }
-    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -77,7 +73,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.initRequest()
+
   },
 
   /**
@@ -92,5 +88,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
+  }
 })

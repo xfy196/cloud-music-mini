@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+const getName = list => {
+  let str = "";
+  list.map((item, index) => {
+    str += index === 0 ? item.name : "/" + item.name;
+    return item;
+  });
+  return str;
+};
+
 module.exports = {
-  formatTime
+  formatTime,
+  getName
 }

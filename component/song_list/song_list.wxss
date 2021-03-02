@@ -1,0 +1,35 @@
+@import "../../assets/iconfont/iconfont.wxss";
+.songListContainer{
+  height: 100%;
+}
+.background{
+  width: 100%;
+  height: 100%;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  filter: blur(40rpx);
+}
+.img_wrapper{
+  width: 240rpx;
+  height: 240rpx;
+  position: relative;
+}
+.img_wrapper .image{
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 6rpx;
+}
+.icon-headset{
+  font-size: 28rpx;
+  color: #f1f1f1;
+}
+.play_count {
+  position: absolute;
+  right: 4rpx;
+  top: 4rpx;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+}

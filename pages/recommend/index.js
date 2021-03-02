@@ -51,6 +51,9 @@ Page({
       method: "GET"
     })
     if(paneResult.code === 200){
+      wx.stopPullDownRefresh({
+        success: (res) => {},
+      })
       this.setData({
         paneItems: paneResult.result
       })

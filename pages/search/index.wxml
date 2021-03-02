@@ -1,3 +1,14 @@
+<wxs module="moduleName">
+  function handleName(list){
+    var str = "";
+    list.map(function(item, index) {
+      str += index === 0 ? item.name : "/" + item.name;
+      return item;
+    });
+    return str;
+  }
+  module.exports = {handleGetName: handleName}
+</wxs>
 <view class="container">
   <view class="searchHead">
     <text bindtap="handleBack" class="iconfont icon-back icon-fanhui"></text>
@@ -23,14 +34,10 @@
       <view class="name">歌手：{{searchResult.artists[0].name}}</view>
     </view>
     <view class="songList">
-      <view bindtap="handleClickSong" data-id="{{item.id}}" class="songItem" wx:for="{{searchResult.songs.songs}}" wx:key="*this">
+      <view bindtap="handleClickSong" data-item="{{item}}" data-id="{{item.id}}" class="songItem" wx:for="{{searchResult.songs.songs}}" wx:key="*this">
         <view class="songName">{{item.name}}</view>
         <view class="songSubTitle">
-          <view class="songText" wx:for="{{item.artists}}" wx:for-item="artist">
-            {{artist.name}}
-          </view>
-          -
-          <view class="songText">{{item.album.name}}</view>
+          {{item.ar ? moduleName.handleGetName(item.ar) : moduleName.handleGetName(item.artists)}} - {{item.al ? item.al.name : item.album.name}}
         </view>
       </view>
     </view>
