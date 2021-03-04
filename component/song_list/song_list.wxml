@@ -1,17 +1,56 @@
 <wxs module="m1">
   var getMax = function(num){
-    return Math.round(num / 10000)
+    var n = Math.round(num / 10000)
+    return isNaN(n) ? "" : n
   }
   module.exports.getMax = getMax
 </wxs>
 <view class="songListContainer">
   <view class="headBox">
-    <view style="background: url({{detail.playlist.coverImgUrl}}) left top no-repeat" class="background"></view>
+    <view style="background: url({{detail.playlist.coverImgUrl}}); background-size: 100% 100%;" class="background"></view>
     <view class="img_wrapper">
       <image class="image" src="{{detail.playlist.coverImgUrl}}"></image>
       <view class="play_count">
         <text class="iconfont icon-headset"></text>
         <text class="count">{{m1.getMax(detail.playlist.playCount)}}万</text>
+      </view>
+    </view>
+    <view class="desc_wrapper">
+      <view class="title">{{detail.playlist.name}}</view>
+      <view class="person">
+        <image class="avatar" src="{{detail.playlist.coverImgUrl}}s"></image>
+        <view class="name">{{detail.playlist.creator.nickname}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="opList">
+    <view>
+      <text class="iconfont icon-pinglun"></text>
+      评论
+    </view>
+    <view>
+      <text class="iconfont icon-xihuan1"></text>
+      点赞
+    </view>
+    <view>
+      <text class="iconfont icon-shoucang"></text>
+      收藏
+    </view>
+    <view>
+      <text class="iconfont icon-youcecaidan"></text>
+      更多
+    </view>
+  </view>
+  <view class="songListPlay">
+    <view class="songPlayHead">
+      <view class="playAll">
+        <text class="iconfont"></text>
+        <text class="playText">播放全部</text>
+        <text class="playCount">(共3首)</text>
+      </view>
+      <view class="collectionBtn">
+        <text class="iconfont"></text>
+        <text class="collectionText">收藏(0.3万)</text>
       </view>
     </view>
   </view>
