@@ -98,7 +98,6 @@ Page({
    */
   handlePlaySong(e){
     app.globalData.playObj = e.detail
-
     app.globalData.backgroudAudioManager.src = `https://music.163.com/song/media/outer/url?id=${e.detail.id}.mp3`
     app.globalData.backgroudAudioManager.title = e.detail.name
     app.globalData.backgroudAudioManager.epname = e.detail.name

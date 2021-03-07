@@ -1,4 +1,6 @@
 // pages/player/index.js
+const {getName} = require("../../utils/util")
+const app = getApp()
 Page({
 
   /**
@@ -33,9 +35,10 @@ Page({
    */
   onReady: function () {
     let id = this.data.song.id;
-    let bgam = wx.createInnerAudioContext()
-    bgam.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
-    bgam.play()
+    app.globalData.backgroudAudioManager.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
+    app.globalData.backgroudAudioManager.title = this.data.song.name
+    app.globalData.backgroudAudioManager.epname = this.data.song.name
+    app.globalData.backgroudAudioManager.singer = getName(this.data.song.ar ? this.data.song: this.data.song.artists)
   },
 
   /**

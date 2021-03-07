@@ -13,3 +13,6 @@ audio{
   display: flex;
   flex-direction: column;
 }
+.showMiniPlay{
+  padding-bottom: 120rpx;
+}

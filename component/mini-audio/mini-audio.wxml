@@ -12,7 +12,7 @@
 </wxs>
   <view class="audio">
     <view class="left_wrapper">
-      <image class="{{audioPlay ? '' : 'pause'}}" src="{{playObj.al.picUrl}}"></image>
+      <image class="{{audioPlay ? '' : 'pause'}}" src="{{playObj.al.picUrl || playObj.artists[0].img1v1Url}}"></image>
       <view class="songName">
         <view class="name">{{playObj.name}}</view>
         <view class="auther">{{playObj.ar ? moduleName.handleGetName(playObj.ar) : moduleName.handleGetName(playObj.artists)}}</view>

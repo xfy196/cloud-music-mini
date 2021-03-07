@@ -33,7 +33,7 @@
       </view>
       <view class="name">歌手：{{searchResult.artists[0].name}}</view>
     </view>
-    <view class="songList">
+    <view class="songList {{showMiniPlay? 'showMiniPlay': ''}}">
       <view bindtap="handleClickSong" data-item="{{item}}" data-id="{{item.id}}" class="songItem" wx:for="{{searchResult.songs.songs}}" wx:key="*this">
         <view class="songName">{{item.name}}</view>
         <view class="songSubTitle">
@@ -43,4 +43,5 @@
     </view>
   </view>
   </scroll-view>
+  <miniAudio bind:handleChangeAudioPlay="handleChangeAudioPlay" wx:if="{{showMiniPlay}}" audioPlay="{{audioPlay}}" playObj="{{playObj}}"></miniAudio>
 </view>

@@ -1,5 +1,7 @@
 // pages/search/index.js
 const request = require("../../utils/requets")
+const {getName} = require("../../utils/util")
+const app = getApp()
 Page({
 
   /**
@@ -9,7 +11,10 @@ Page({
     hots: [],
     searchResult: [],
     searchStatus: false,
-    searchValue: ""
+    searchValue: "",
+    audioPlay: false,
+    playObj: {},
+    showMiniPlay: false
   },
 
   /**
@@ -18,6 +23,11 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '搜索歌曲',
+    })
+    this.setData({
+      audioPlay: app.globalData.audioPlay,
+      showMiniPlay: app.globalData.showMiniPlay,
+      playObj: app.globalData.playObj
     })
     this.initRequest()
   },
@@ -120,13 +130,22 @@ Page({
    */
   handleClickSong(e){
     let item = e.currentTarget.dataset.item
-    // let id = item.id;
-    // let bgam = wx.createInnerAudioContext()
-    // bgam.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
-    // bgam.play()
-    wx.navigateTo({
-      url: `/pages/player/index?item=${encodeURIComponent(JSON.stringify(item))}`,
+    app.globalData.playObj = item
+    app.globalData.backgroudAudioManager.src = `https://music.163.com/song/media/outer/url?id=${item.id}.mp3`
+    app.globalData.backgroudAudioManager.title = item.name
+    app.globalData.backgroudAudioManager.epname = item.name
+    app.globalData.backgroudAudioManager.singer = getName(item.ar ? item.ar: item.artists)
+    app.globalData.audioPlay = true
+    app.globalData.playObj = item
+    app.globalData.showMiniPlay = true
+    this.setData({
+      audioPlay: true,
+      playObj: item,
+      showMiniPlay: true
     })
+    // wx.navigateTo({
+    //   url: `/pages/player/index?item=${encodeURIComponent(JSON.stringify(item))}`,
+    // })
   },
   handleHotTap(e){
     this.handleSearch(e.currentTarget.dataset.value)
@@ -147,6 +166,15 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  /**
+   * 改变当前歌曲的播放状态的函数
+   */
+  handleChangeAudioPlay(e){
+      this.setData({
+        showMiniPlay: e.detail.audioPlay
+      })
   },
 
   /**

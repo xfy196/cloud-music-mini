@@ -116,9 +116,6 @@
   flex: 1;
   background: #fff;
 }
-.songList.showMiniPlay{
-  padding-bottom: 120rpx;
-}
 .songListPlay .songPlayHead .playAll{
   flex: 1;
   display: flex;
