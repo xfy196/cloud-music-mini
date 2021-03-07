@@ -64,7 +64,7 @@
         <text class="collectionText">收藏({{m1.getMax(detail.playlist.subscribedCount)}}万)</text>
       </view>
     </view>
-    <view class="songList">
+    <view class="songList {{showMiniPlay ? 'showMiniPlay': ''}}">
       <view class="songItem" bindtap="handlePlaySong" data-item="{{item}}" wx:for="{{detail.playlist.tracks}}" wx:key="id">
         <text class="index">{{index + 1}}</text>
         <view class="info">

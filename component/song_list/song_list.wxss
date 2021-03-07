@@ -2,6 +2,7 @@
 .songListContainer{
   height: 100%;
   background: #f2f3f4;
+  overflow: auto;
 }
 .background{
   width: 100%;
@@ -100,6 +101,9 @@
   border-radius: 20rpx;
   z-index: 10;
   position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .songListPlay .songPlayHead{
   display: flex;
@@ -107,6 +111,13 @@
   padding: 20rpx 0;
   margin-left: 20rpx;
   position: relative;
+}
+.songListPlay .songList{
+  flex: 1;
+  background: #fff;
+}
+.songList.showMiniPlay{
+  padding-bottom: 120rpx;
 }
 .songListPlay .songPlayHead .playAll{
   flex: 1;

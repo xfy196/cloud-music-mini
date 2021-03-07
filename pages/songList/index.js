@@ -41,15 +41,30 @@ Page({
         }
       })
       if(result.code == 200){
-        wx.hideLoading({
-          success: (res) => {},
-        })
-        this.setData({
-          detail: {
-            playlist: result.playlist,
-            privileges: result.privileges
+        
+        let ids = result.playlist.trackIds.reduce((prev, cur, index, arr) => {
+          return prev.concat(cur.id)
+        }, []).join(",")
+        let songs = await request({
+          url: "/song/detail",
+          data: {
+            ids
           }
         })
+        if(songs.code === 200){
+          wx.hideLoading({
+            success: (res) => {},
+          })
+          this.setData({
+            detail: {
+              playlist: {
+                ...result.playlist,
+                tracks: songs.songs
+              },
+              privileges: songs.privileges
+            }
+          })
+        }
       }
     } catch (error) {
       wx.showToast({

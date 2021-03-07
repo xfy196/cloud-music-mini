@@ -1,17 +1,18 @@
 // component/song_list/song_list.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    detail: Object
+    detail: Object,
+    showMiniPlay: Boolean
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
   },
 
   /**
@@ -22,6 +23,10 @@ Component({
       this.triggerEvent("handlePlaySong", e.currentTarget.dataset.item, {
 
       })
+    }
+  },
+  lifetimes: {
+    ready(){
     }
   }
 })
