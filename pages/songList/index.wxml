@@ -1,4 +1,4 @@
 <view class="container">
   <songList bind:handlePlaySong="handlePlaySong" detail="{{detail}}"></songList>
-  <miniAudio wx:if="{{audioPlay}}" audioPlay="{{audioPlay}}" playObj="{{playObj}}"></miniAudio>
+  <miniAudio bind:handleChangeAudioPlay="handleChangeAudioPlay" wx:if="{{showMiniPlay}}" audioPlay="{{audioPlay}}" playObj="{{playObj}}"></miniAudio>
 </view>

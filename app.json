@@ -7,7 +7,7 @@
     "pages/search/index",
     "pages/songList/index"
   ],
-  "requiredBackgroundModes": ["audio"],
+  "requiredBackgroundModes": ["audio", "location"],
   "usingComponents": {
     "head-title": "/component/head_title/head_title"
   },

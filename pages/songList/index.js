@@ -1,5 +1,6 @@
 // pages/songLIst/index.js
 const request = require("../../utils/requets")
+const {getName} = require("../../utils/util")
 const app = getApp()
 Page({
 
@@ -9,7 +10,8 @@ Page({
   data: {
     detail: {},
     audioPlay: false,
-    playObj: {}
+    playObj: {},
+    showMiniPlay: false
   },
 
   /**
@@ -17,7 +19,9 @@ Page({
    */
   onLoad: function ({id}) {
     this.setData({
-      audioPlay: app.globalData.audioPlay
+      audioPlay: app.globalData.audioPlay,
+      showMiniPlay: app.globalData.showMiniPlay,
+      playObj: app.globalData.playObj
     })
     this.intirequest(id)
   },
@@ -80,13 +84,22 @@ Page({
   handlePlaySong(e){
     app.globalData.playObj = e.detail
 
-    app.globalData.innerAudioContext.autoplay = true
-
-    app.globalData.innerAudioContext.src = `https://music.163.com/song/media/outer/url?id=${e.detail.id}.mp3`
-    
+    app.globalData.backgroudAudioManager.src = `https://music.163.com/song/media/outer/url?id=${e.detail.id}.mp3`
+    app.globalData.backgroudAudioManager.title = e.detail.name
+    app.globalData.backgroudAudioManager.epname = e.detail.name
+    app.globalData.backgroudAudioManager.singer = getName(e.detail.ar)
+    app.globalData.audioPlay = true
+    app.globalData.playObj = e.detail
+    app.globalData.showMiniPlay = true
     this.setData({
       audioPlay: true,
-      playObj: e.detail
+      playObj: e.detail,
+      showMiniPlay: true
+    })
+  },
+  handleChangeAudioPlay(e){
+    this.setData({
+      showMiniPlay: e.detail.audioPlay
     })
   },
   /**

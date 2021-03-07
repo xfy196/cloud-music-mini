@@ -1,7 +1,7 @@
 // app.js
 App({
   onLaunch() {
-    this.globalData.innerAudioContext = wx.createInnerAudioContext()
+    this.globalData.backgroudAudioManager = wx.getBackgroundAudioManager()
     wx.getSystemInfo({
       success: (result) => {
         this.globalData.windowWidth = result.windowWidth
@@ -14,6 +14,7 @@ App({
     windowHeigth: 0,
     audioPlay: false,
     playObj: {},
-    innerAudioContext: null
+    backgroudAudioManager: null,
+    showMiniPlay: false,
   }
 })

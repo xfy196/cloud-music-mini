@@ -20,12 +20,14 @@ Component({
   methods: {
     handleSongPlay(){
       if(this.data.audioPlay){
-        app.globalData.innerAudioContext.pause()
+        app.globalData.backgroudAudioManager.pause()
+        app.globalData.audioPlay = false
         this.setData({
           audioPlay: false
         })
       }else {
-      app.globalData.innerAudioContext.play()   
+      app.globalData.backgroudAudioManager.play()   
+      app.globalData.audioPlay = true
       this.setData({
         audioPlay: true
       })
@@ -34,7 +36,28 @@ Component({
   },
   lifetimes: {
     ready(){
-      
+      app.globalData.backgroudAudioManager.onPause(() => {
+        app.globalData.audioPlay = false
+        this.setData({
+          audioPlay: false
+        })
+      })
+      app.globalData.backgroudAudioManager.onPlay(() => {
+        app.globalData.audioPlay = true
+
+        this.setData({
+          audioPlay: true
+        })
+      })
+      app.globalData.backgroudAudioManager.onStop(() => {
+        app.globalData.audioPlay = false
+        this.triggerEvent("handleChangeAudioPlay", {
+          audioPlay: false
+        })
+        this.setData({
+          audioPlay: false
+        })
+      })
     }
   }
 })

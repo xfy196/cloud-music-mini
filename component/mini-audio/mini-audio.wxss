@@ -1,7 +1,7 @@
 @import "../../assets/iconfont/iconfont.wxss";
-#audio{
+.audio{
   width: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   display: flex;
   height: 120rpx;
@@ -9,33 +9,33 @@
   background: #ffffff;
   justify-content: space-between;
 }
-#audio .left_wrapper{
+.audio .left_wrapper{
   height: 100%;
   display: flex;
   align-items: center;
 }
-#audio .left_wrapper image{
+.audio .left_wrapper image{
   width: 80rpx;
   height: 80rpx;
   border-radius: 100%;
   margin: 0 20rpx 0 40rpx;
   animation: songPic 10s infinite;
 }
-#audio .left_wrapper image.pause{
+.audio .left_wrapper image.pause{
   animation-play-state: paused;
 }
-#audio .left_wrapper .songName .name {
+.audio .left_wrapper .songName .name {
   font-size: 24rpx;
   font-weight: 600;
 }
-#audio .left_wrapper .songName .auther{
+.audio .left_wrapper .songName .auther{
     font-size: 12px;
     color: #bba8a8;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
-#audio .right_wrapper .iconfont {
+.audio .right_wrapper .iconfont {
   font-size: 60rpx;
   color: #d44439;
   margin: 0 14rpx;

@@ -10,7 +10,7 @@
   }
   module.exports = {handleGetName: handleName}
 </wxs>
-<view id="audio">
+<view class="audio">
   <view class="left_wrapper">
     <image class="{{audioPlay ? '' : 'pause'}}" src="{{playObj.al.picUrl}}"></image>
     <view class="songName">
