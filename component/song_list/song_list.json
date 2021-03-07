@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {},
+  "window": {
+    "enablePullDownRefresh": false
+  }
 }
