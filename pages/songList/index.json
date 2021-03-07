@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "songList": "../../component/song_list/song_list"
+    "songList": "../../component/song_list/song_list",
+    "miniAudio": "../../component/mini-audio/mini-audio"
   }
 }

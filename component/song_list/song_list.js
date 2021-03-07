@@ -18,6 +18,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    handlePlaySong(e){
+      this.triggerEvent("handlePlaySong", e.currentTarget.dataset.item, {
 
+      })
+    }
   }
 })

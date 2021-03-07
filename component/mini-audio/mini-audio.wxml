@@ -1,0 +1,25 @@
+<wxs module="moduleName">
+  function handleName(list){
+    var str = "";
+    console.log(list)
+    list.map(function(item, index) {
+      str += index === 0 ? item.name : "/" + item.name;
+      return item;
+    });
+    return str;
+  }
+  module.exports = {handleGetName: handleName}
+</wxs>
+<view id="audio">
+  <view class="left_wrapper">
+    <image class="{{audioPlay ? '' : 'pause'}}" src="{{playObj.al.picUrl}}"></image>
+    <view class="songName">
+      <view class="name">{{playObj.name}}</view>
+      <view class="auther">{{playObj.ar ? moduleName.handleGetName(playObj.ar) : moduleName.handleGetName(playObj.artists)}}</view>
+    </view>
+  </view>
+    <view class="right_wrapper">
+      <text bindtap="handleSongPlay" class="iconfont {{audioPlay ? 'icon-stop': 'icon-bofang'}}"></text>
+      <text class="iconfont icon-liebiao"></text>
+    </view>
+</view>

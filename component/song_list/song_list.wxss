@@ -1,6 +1,7 @@
 @import "../../assets/iconfont/iconfont.wxss";
 .songListContainer{
   height: 100%;
+  background: #f2f3f4;
 }
 .background{
   width: 100%;
@@ -9,7 +10,7 @@
   filter: blur(40rpx);
   background-repeat: no-repeat;
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   top: 0;
   left: 0;
 }
@@ -17,6 +18,7 @@
   width: 240rpx;
   height: 240rpx;
   position: relative;
+  z-index: 10;
 }
 .img_wrapper .image{
   width: 240rpx;
@@ -57,6 +59,7 @@
   justify-content: space-around;
   flex: 1;
   padding: 0 20rpx;
+  z-index: 10;
 }
 .headBox .desc_wrapper .title {
   color: #f1f1f1;
@@ -75,6 +78,7 @@
   border-radius: 100%;
 }
 .opList{
+  z-index: 10;
   display: flex;
   position: relative;
   justify-content: space-between;
@@ -93,6 +97,83 @@
 }
 .songListPlay{
   background: #fff;
-  border-top-left-radius: 20rpx;
-  border-top-right-radius: 20rpx;
+  border-radius: 20rpx;
+  z-index: 10;
+  position: relative;
+}
+.songListPlay .songPlayHead{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  margin-left: 20rpx;
+  position: relative;
+}
+.songListPlay .songPlayHead .playAll{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.songListPlay .songPlayHead .playAll .iconfont {
+  font-size: 48rpx;
+}
+.songListPlay .songPlayHead .playAll .playText{
+  margin: 0 0 0 20rpx;
+  font-size: 32rpx;
+}
+.songListPlay .songPlayHead .playAll .playCount{
+  font-size: 24rpx;
+  color: #bba8a8;
+  margin-left: 10rpx;
+}
+.songListPlay .songPlayHead .collectionBtn{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d44439;
+  color: #f1f1f1;
+  width: 260rpx;
+  border-radius: 6rpx;
+}
+.songListPlay .songPlayHead .collectionBtn .iconfont {
+  font-size: 24rpx;
+  margin: 0 10rpx 0 20rpx;
+}
+.songListPlay .songPlayHead .collectionBtn .collectionText{
+  font-size: 28rpx;
+  line-break: 68rpx;
+}
+.songList .songItem{
+  display: flex;
+}
+.songList .songItem .index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+.songList .songItem .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: calc(100% - 120rpx);
+}
+.songList .songItem .info .songName {
+  color: #2E3030;
+  font-size: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.songList .songItem .info .songSubTitle {
+  font-size: 24rpx;
+  color: #bba8a8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

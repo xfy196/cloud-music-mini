@@ -21,7 +21,7 @@
   <view class="content">
     <head-title title="推荐歌单"></head-title>
     <view class="recommendLists">
-      <recommend-item class="recommend-item" style="width: 32%"  item="{{item}}" wx:for="{{paneItems}}" wx:key="id"></recommend-item>
+      <recommend-item bindtap="handleClickSongItem" data-id="{{item.id}}" class="recommend-item" style="width: 32%"  item="{{item}}" wx:for="{{paneItems}}" wx:key="id"></recommend-item>
     </view>
   </view>
 </div>

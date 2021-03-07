@@ -1,25 +1,34 @@
 // pages/songLIst/index.js
 const request = require("../../utils/requets")
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    detail: {}
+    detail: {},
+    audioPlay: false,
+    playObj: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.intirequest("5481314588")
+  onLoad: function ({id}) {
+    this.setData({
+      audioPlay: app.globalData.audioPlay
+    })
+    this.intirequest(id)
   },
 
   /**
    * 初始化请求
    */
   async intirequest(id){
+    wx.showLoading({
+      title: "正在加载中...",
+    })
     try {
       let result = await request({
         url: "/playlist/detail",
@@ -28,6 +37,9 @@ Page({
         }
       })
       if(result.code == 200){
+        wx.hideLoading({
+          success: (res) => {},
+        })
         this.setData({
           detail: {
             playlist: result.playlist,
@@ -61,7 +73,22 @@ Page({
   onHide: function () {
 
   },
+  /**
+   * 处理播放歌曲
+   * @param {*} e 
+   */
+  handlePlaySong(e){
+    app.globalData.playObj = e.detail
 
+    app.globalData.innerAudioContext.autoplay = true
+
+    app.globalData.innerAudioContext.src = `https://music.163.com/song/media/outer/url?id=${e.detail.id}.mp3`
+    
+    this.setData({
+      audioPlay: true,
+      playObj: e.detail
+    })
+  },
   /**
    * 生命周期函数--监听页面卸载
    */

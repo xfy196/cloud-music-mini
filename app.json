@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/songList/index",
     "pages/recommend/index",
     "pages/rank/index",
     "pages/singer/index",
     "pages/player/index",
-    "pages/search/index"
+    "pages/search/index",
+    "pages/songList/index"
   ],
+  "requiredBackgroundModes": ["audio"],
   "usingComponents": {
     "head-title": "/component/head_title/head_title"
   },

@@ -1,0 +1,50 @@
+@import "../../assets/iconfont/iconfont.wxss";
+#audio{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  height: 120rpx;
+  align-items: center;
+  background: #ffffff;
+  justify-content: space-between;
+}
+#audio .left_wrapper{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#audio .left_wrapper image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  margin: 0 20rpx 0 40rpx;
+  animation: songPic 10s infinite;
+}
+#audio .left_wrapper image.pause{
+  animation-play-state: paused;
+}
+#audio .left_wrapper .songName .name {
+  font-size: 24rpx;
+  font-weight: 600;
+}
+#audio .left_wrapper .songName .auther{
+    font-size: 12px;
+    color: #bba8a8;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#audio .right_wrapper .iconfont {
+  font-size: 60rpx;
+  color: #d44439;
+  margin: 0 14rpx;
+}
+@keyframes songPic {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

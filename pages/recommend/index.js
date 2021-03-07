@@ -59,6 +59,12 @@ Page({
       })
     }
   },
+
+  handleClickSongItem(e){
+    wx.navigateTo({
+      url: '/pages/songList/index?id='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

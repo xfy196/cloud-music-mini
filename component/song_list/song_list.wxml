@@ -5,6 +5,17 @@
   }
   module.exports.getMax = getMax
 </wxs>
+<wxs module="moduleName">
+  function handleName(list){
+    var str = "";
+    list.map(function(item, index) {
+      str += index === 0 ? item.name : "/" + item.name;
+      return item;
+    });
+    return str;
+  }
+  module.exports = {handleGetName: handleName}
+</wxs>
 <view class="songListContainer">
   <view class="headBox">
     <view style="background: url({{detail.playlist.coverImgUrl}}); background-size: 100% 100%;" class="background"></view>
@@ -44,13 +55,24 @@
   <view class="songListPlay">
     <view class="songPlayHead">
       <view class="playAll">
-        <text class="iconfont"></text>
+        <text class="iconfont icon-bofang"></text>
         <text class="playText">播放全部</text>
-        <text class="playCount">(共3首)</text>
+        <text class="playCount">(共{{detail.playlist.tracks.length}}首)</text>
       </view>
       <view class="collectionBtn">
-        <text class="iconfont"></text>
-        <text class="collectionText">收藏(0.3万)</text>
+        <text class="iconfont icon-tianjia"></text>
+        <text class="collectionText">收藏({{m1.getMax(detail.playlist.subscribedCount)}}万)</text>
+      </view>
+    </view>
+    <view class="songList">
+      <view class="songItem" bindtap="handlePlaySong" data-item="{{item}}" wx:for="{{detail.playlist.tracks}}" wx:key="id">
+        <text class="index">{{index + 1}}</text>
+        <view class="info">
+          <view class="songName">{{item.name}}</view>
+          <view class="songSubTitle">
+          {{item.ar ? moduleName.handleGetName(item.ar) : moduleName.handleGetName(item.artists)}} - {{item.al ? item.al.name : item.album.name}}
+          </view>
+        </view>
       </view>
     </view>
   </view>
