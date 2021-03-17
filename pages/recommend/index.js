@@ -1,5 +1,5 @@
 const requets = require("../../utils/requets")
-
+const app = getApp()
 // pages/recommend/index.js
 Page({
 
@@ -13,14 +13,21 @@ Page({
     autoplay: true,
     interval: 2000,
     duration: 500,
-    paneItems: []
+    paneItems: [],
+    audioPlay: false,
+    playObj: {},
+    showMiniPlay: false
   },
 
   /**
    * 生命周期函数--监听页面 加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      audioPlay: app.globalData.audioPlay,
+      showMiniPlay: app.globalData.showMiniPlay,
+      playObj: app.globalData.playObj
+    })
   },
 
   /**
@@ -65,11 +72,18 @@ Page({
       url: '/pages/songList/index?id='+e.currentTarget.dataset.id,
     })
   },
+
+  handleChangeAudioPlay(e){
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      audioPlay: app.globalData.audioPlay,
+      showMiniPlay: app.globalData.showMiniPlay,
+      playObj: app.globalData.playObj
+    })
   },
 
   /**

@@ -1,4 +1,4 @@
-<div class="container">
+<view class="container">
   <view class="swiperBox">
     <view class="swiperWrapperBackground">
     <swiper
@@ -16,12 +16,12 @@
   </swiper>
   </view>
   </view>
-  <!-- 轮播图 -->
 
-  <view class="content">
+  <view class="content" style="padding-bottom: {{showMiniPlay ? '120rpx': 0}}">
     <head-title title="推荐歌单"></head-title>
     <view class="recommendLists">
       <recommend-item bindtap="handleClickSongItem" data-id="{{item.id}}" class="recommend-item" style="width: 32%"  item="{{item}}" wx:for="{{paneItems}}" wx:key="id"></recommend-item>
     </view>
   </view>
-</div>
+</view>
+<miniAudio class="miniAudio" bind:handleChangeAudioPlay="handleChangeAudioPlay" wx:if="{{showMiniPlay}}" audioPlay="{{audioPlay}}" playObj="{{playObj}}"></miniAudio>

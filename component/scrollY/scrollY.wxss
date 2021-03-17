@@ -15,6 +15,9 @@
   align-items: center;
   height: auto;
 }
+.sItem:last-child{
+  border-block: none;
+}
 .sItem .img{
   width: 100rpx;
   height: 100rpx;

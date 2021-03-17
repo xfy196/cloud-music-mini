@@ -44,13 +44,13 @@ Component({
       })
       app.globalData.backgroudAudioManager.onPlay(() => {
         app.globalData.audioPlay = true
-
         this.setData({
           audioPlay: true
         })
       })
       app.globalData.backgroudAudioManager.onStop(() => {
         app.globalData.audioPlay = false
+      app.globalData.backgroudAudioManager.src =  `https://music.163.com/song/media/outer/url?id=${this.data.playObj.id}.mp3`
         this.triggerEvent("handleChangeAudioPlay", {
           audioPlay: false
         })

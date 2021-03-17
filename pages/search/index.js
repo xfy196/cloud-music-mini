@@ -172,9 +172,6 @@ Page({
    * 改变当前歌曲的播放状态的函数
    */
   handleChangeAudioPlay(e){
-      this.setData({
-        showMiniPlay: e.detail.audioPlay
-      })
   },
 
   /**

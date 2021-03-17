@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "recommend-item": "../../component/recommend_item/recommend_item"
+    "recommend-item": "../../component/recommend_item/recommend_item",
+    "miniAudio": "../../component/mini-audio/mini-audio"
   }
 }
