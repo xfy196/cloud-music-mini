@@ -2,7 +2,7 @@
   <head-title title="官方榜"></head-title>
 <!-- 官方榜列表 -->
 <view class="officalContainer">
-  <view class="oItem" wx:for="{{officalList}}" wx:key="*this">
+  <view class="oItem" bindtap="handleItemTab" data-id="{{item.id}}" wx:for="{{officalList}}" wx:key="*this">
     <view class="img_wrapper">
       <image src="{{item.coverImgUrl}}"></image>
       <view class="update_frequecy">{{item.updateFrequency}}</view>
@@ -16,12 +16,14 @@
 </view>
 <!-- 全球榜 -->
 <head-title title="全球榜"></head-title>
-<view class="globalContainer">
-  <view class="gItem" wx:for="{{globalList}}" wx:key="*this">
+<view class="globalContainer" style="padding-bottom: {{showMiniPlay ? '120rpx': 0}}">
+  <view bindtap="handleItemTab" data-id="{{item.id}}" class="gItem" wx:for="{{globalList}}" wx:key="*this">
     <view class="img_wrapper">
       <image src="{{item.coverImgUrl}}"></image>
       <view class="update_frequecy">{{item.updateFrequency}}</view>
     </view>
   </view>
 </view>
+<miniAudio class="miniAudio" class="miniAudio" bind:handleChangeAudioPlay="handleChangeAudioPlay" wx:if="{{showMiniPlay}}" audioPlay="{{audioPlay}}" playObj="{{playObj}}"></miniAudio>
+
 </view>

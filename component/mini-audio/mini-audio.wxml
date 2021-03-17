@@ -1,11 +1,10 @@
 <wxs module="moduleName">
   function handleName(list){
     var str = "";
-    console.log(list)
-    list.map(function(item, index) {
+    !!list.length ? list.map(function(item, index) {
       str += index === 0 ? item.name : "/" + item.name;
       return item;
-    });
+    }) : "";
     return str;
   }
   module.exports = {handleGetName: handleName}
