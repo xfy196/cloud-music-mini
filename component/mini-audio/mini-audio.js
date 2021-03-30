@@ -13,11 +13,33 @@ Component({
    * 组件的初始数据
    */
   data: {
+    showPlayList: true
   },
   /**
    * 组件的方法列表
    */
   methods: {
+    /**
+     * 进入CD播放页面
+     */
+    handleEnterCdPlay(){
+      wx.navigateTo({
+        url: '/pages/cdPlay/cdPlay',
+      })
+    },
+    handleTapPlayList(){
+      this.setData({
+        showPlayList: true
+      })
+    },
+    /**
+     * 点击显示当前播放的列表
+     */
+    handleTapShowPlayList(){
+      this.setData({
+        showPlayList: false
+      })
+    },
     handleSongPlay(){
       if(this.data.audioPlay){
         app.globalData.backgroudAudioManager.pause()

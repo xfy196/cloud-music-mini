@@ -5,9 +5,13 @@
     "pages/singer/index",
     "pages/player/index",
     "pages/search/index",
-    "pages/songList/index"
+    "pages/songList/index",
+    "pages/cdPlay/cdPlay"
   ],
-  "requiredBackgroundModes": ["audio", "location"],
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
   "usingComponents": {
     "head-title": "/component/head_title/head_title"
   },

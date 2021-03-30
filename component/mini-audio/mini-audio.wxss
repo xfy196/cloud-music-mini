@@ -1,4 +1,6 @@
 @import "../../assets/iconfont/iconfont.wxss";
+@import "../../assets/style/animate.min.wxss";
+
 .audio{
   width: 100%;
   position: absolute;
@@ -40,6 +42,26 @@
   font-size: 60rpx;
   color: #d44439;
   margin: 0 14rpx;
+}
+/* 播放列表 */
+.playListContainer{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:rgba(0,0,0,0.3);
+  z-index: 10001;
+}
+.playListContainer .list{
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  height: 200rpx;
+  background: #ffffff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: backInLeft 5s infinite;
 }
 @keyframes songPic {
   0%{

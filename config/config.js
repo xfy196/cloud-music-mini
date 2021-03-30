@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: "https://music.xxytime.top/api",
+  baseUrl: "http://localhost:3001",
   categoryTypes: [
     {
       name: "华语男",

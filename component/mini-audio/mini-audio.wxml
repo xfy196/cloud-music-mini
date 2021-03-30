@@ -9,7 +9,7 @@
   }
   module.exports = {handleGetName: handleName}
 </wxs>
-  <view class="audio">
+  <view class="audio" bindtap="handleEnterCdPlay">
     <view class="left_wrapper">
       <image class="{{audioPlay ? '' : 'pause'}}" src="{{playObj.al.picUrl || playObj.artists[0].img1v1Url}}"></image>
       <view class="songName">
@@ -18,7 +18,12 @@
       </view>
     </view>
       <view class="right_wrapper">
-        <text bindtap="handleSongPlay" class="iconfont {{audioPlay ? 'icon-stop': 'icon-bofang'}}"></text>
-        <text class="iconfont icon-liebiao"></text>
+        <text catchtap="handleSongPlay" class="iconfont {{audioPlay ? 'icon-stop': 'icon-bofang'}}"></text>
+        <text catchtap="handleTapShowPlayList" class="iconfont icon-liebiao"></text>
       </view>
+</view>
+<view bindtap="handleTapPlayList" style="display: {{showPlayList ? 'none': 'block'}}" class="playListContainer">
+  <view class="list animate__animated animate__backInLeft">
+    <view class="item"></view>
+  </view>
 </view>
