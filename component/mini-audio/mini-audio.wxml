@@ -23,7 +23,7 @@
       </view>
 </view>
 <view bindtap="handleTapPlayList" style="display: {{showPlayList ? 'none': 'block'}}" class="playListContainer">
-  <view class="list animate__animated animate__backInLeft">
+  <view class="list animate__animated animate__fadeInUp">
     <view class="item"></view>
   </view>
 </view>

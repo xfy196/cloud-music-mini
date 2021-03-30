@@ -56,12 +56,11 @@
 .playListContainer .list{
   width: 100%;
   border-radius: 10px 10px 0 0;
-  height: 200rpx;
   background: #ffffff;
   position: absolute;
   bottom: 0;
   left: 0;
-  animation: backInLeft 5s infinite;
+  animation: fadeInUp 0.5s;
 }
 @keyframes songPic {
   0%{
