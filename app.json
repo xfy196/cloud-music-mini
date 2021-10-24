@@ -6,7 +6,8 @@
     "pages/player/index",
     "pages/search/index",
     "pages/songList/index",
-    "pages/cdPlay/cdPlay"
+    "pages/cdPlay/cdPlay",
+    "pages/back/index"
   ],
   "requiredBackgroundModes": [
     "audio",

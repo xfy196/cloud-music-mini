@@ -1,0 +1,30 @@
+"tabBar": {
+  "color": "#333333",
+  "selectedColor": "#d44439",
+  "list": [
+    {
+      "pagePath": "pages/recommend/index",
+      "text": "推荐",
+      "iconPath": "assets/recommend.png",
+      "selectedIconPath": "assets/recommend-selected.png"
+    },
+    {
+      "pagePath": "pages/singer/index",
+      "text": "歌手",
+      "iconPath": "assets/singer.png",
+      "selectedIconPath": "assets/singer-selected.png"
+    },
+    {
+      "pagePath": "pages/search/index",
+      "text": "搜索",
+      "iconPath": "assets/search.png",
+      "selectedIconPath": "assets/search-selected.png"
+    },
+    {
+      "pagePath": "pages/rank/index",
+      "text": "排行榜",
+      "iconPath": "assets/rank.png",
+      "selectedIconPath": "assets/rank-selected.png"
+    }
+  ]
+},
