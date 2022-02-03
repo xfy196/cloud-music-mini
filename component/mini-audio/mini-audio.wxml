@@ -1,5 +1,6 @@
 <wxs module="moduleName">
   function handleName(list){
+    if(!list) return ""
     var str = "";
     !!list.length ? list.map(function(item, index) {
       str += index === 0 ? item.name : "/" + item.name;

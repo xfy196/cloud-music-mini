@@ -6,6 +6,8 @@ App({
       success: (result) => {
         this.globalData.windowWidth = result.windowWidth
         this.globalData.windowHeigth = result.windowHeight
+        this.globalData.navHeight = result.statusBarHeight + 46
+        this.globalData.statusbarHeight = result.statusBarHeight
       },
     })
   },
@@ -16,5 +18,7 @@ App({
     playObj: {},
     backgroudAudioManager: null,
     showMiniPlay: false,
+    navHeight: 0,
+    statusbarHeight: 0
   }
 })

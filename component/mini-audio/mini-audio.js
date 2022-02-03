@@ -24,7 +24,7 @@ Component({
      */
     handleEnterCdPlay(){
       wx.navigateTo({
-        url: '/pages/cdPlay/cdPlay',
+        url: `/pages/cdPlay/cdPlay?id=${this.data.playObj.id}`,
       })
     },
     handleTapPlayList(){

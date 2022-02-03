@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "",
+          "pathName": "pages/cdPlay/cdPlay",
+          "query": "id=33894312",
+          "scene": null,
+          "partialCompile": {
+            "enabled": false,
+            "pages": [
+              "pages/recommend/index"
+            ]
+          }
+        },
+        {
+          "name": "",
+          "pathName": "pages/recommend/index",
+          "query": "",
+          "scene": null,
+          "partialCompile": {
+            "enabled": false,
+            "pages": [
+              "pages/recommend/index"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

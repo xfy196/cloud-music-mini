@@ -1,18 +1,30 @@
 // pages/cdPlay/cdPlay.js
+const request = require("../../utils/requets")
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    navH: app.globalData.navHeight,
+    statusbarHeight: app.globalData.statusbarHeight,
+    id: null,
+    lyric: null,
+    navHiiden: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      song: app.globalData.playObj
+    })
+    this.setData({
+      id: options.id
+    })
+    this.getLyricRequest(this.data.id)
   },
 
   /**
@@ -20,6 +32,31 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  // 返回
+  back(){
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
+  async getLyricRequest(id){
+    let result = await request({
+      url: "/lyric",
+      data: {
+        id
+      }
+    })
+    if(result.code === 200){
+      this.setData({
+        lyric: result.lrc
+      })
+    }else {
+      wx.showToast({
+        title: "服务器错误",
+        icon: "error"
+      })
+    }
   },
 
   /**
