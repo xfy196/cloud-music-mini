@@ -35,6 +35,24 @@
               "pages/recommend/index"
             ]
           }
+        },
+        {
+          "name": "pages/recommend/index",
+          "pathName": "pages/recommend/index",
+          "query": "",
+          "scene": null,
+          "partialCompile": {
+            "enabled": false,
+            "pages": [
+              "pages/cdPlay/cdPlay"
+            ]
+          }
+        },
+        {
+          "name": "pages/cdPlay/cdPlay",
+          "pathName": "pages/cdPlay/cdPlay",
+          "query": "",
+          "scene": null
         }
       ]
     }

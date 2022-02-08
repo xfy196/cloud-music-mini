@@ -21,11 +21,14 @@
   <scroll-view class='scroll-container overflow' style='padding-top: {{statusbarHeight}}px;height: calc(100vh - {{statusbarHeight}}px);' scroll-y>
     <view class="wrapper">
       <!-- 正文 -->
-      <view class="header">
+      <view hidden="{{!navHiiden}}" class="header">
         <view class="name">{{song.name}}</view>
         <view class="author">
           {{song.ar ? moduleName.handleGetName(song.ar) : moduleName.handleGetName(song.artists)}}
         </view>
+      </view>
+      <view class="cd__content">
+        
       </view>
     </view>
   </scroll-view>

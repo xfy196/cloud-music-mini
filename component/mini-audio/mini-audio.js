@@ -48,6 +48,7 @@ Component({
           audioPlay: false
         })
       }else {
+      app.globalData.backgroudAudioManager.src =  `https://music.163.com/song/media/outer/url?id=${this.data.playObj.id}.mp3`
       app.globalData.backgroudAudioManager.play()   
       app.globalData.audioPlay = true
       this.setData({
@@ -72,7 +73,6 @@ Component({
       })
       app.globalData.backgroudAudioManager.onStop(() => {
         app.globalData.audioPlay = false
-      app.globalData.backgroudAudioManager.src =  `https://music.163.com/song/media/outer/url?id=${this.data.playObj.id}.mp3`
         this.triggerEvent("handleChangeAudioPlay", {
           audioPlay: false
         })

@@ -2,5 +2,6 @@
   "usingComponents": {
     "recommend-item": "../../component/recommend_item/recommend_item",
     "miniAudio": "../../component/mini-audio/mini-audio"
-  }
+  },
+  "backgroundColor": "#d44439"
 }

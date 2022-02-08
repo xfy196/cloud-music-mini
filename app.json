@@ -21,8 +21,7 @@
     "navigationBarBackgroundColor": "#d44439",
     "navigationBarTitleText": "云音乐",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true,
-    "backgroundColor": "#d44439"
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#333333",
