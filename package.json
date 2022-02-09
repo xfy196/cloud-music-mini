@@ -15,5 +15,8 @@
     "url": "https://github.com/xfy196/cloud-music-mini/issues"
   },
   "homepage": "https://github.com/xfy196/cloud-music-mini#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "underscore": "^1.13.2"
+  }
 }

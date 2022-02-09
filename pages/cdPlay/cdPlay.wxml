@@ -28,7 +28,9 @@
         </view>
       </view>
       <view class="cd__content">
-        
+      <view class="cd_img">
+      <cover-image class="music__bg-img" src="{{song.al.picUrl}}"></cover-image>
+      </view>
       </view>
     </view>
   </scroll-view>

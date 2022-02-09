@@ -37,6 +37,9 @@ Page({
    */
   async initRequest(){
     try {
+      wx.showLoading({
+        title: '正在加载中',
+      })
       let hotResult = await request({
         url: "/search/hot",
       })
@@ -56,6 +59,8 @@ Page({
       wx.showToast({
         title: '异常错误',
       })
+    }finally {
+      wx.hideLoading()
     }
     
   },

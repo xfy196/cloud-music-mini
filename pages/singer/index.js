@@ -24,26 +24,33 @@ Page({
   },
 
   async initRequest(){
-    let result = await request({
-      url: "/top/artists",
-      method: "GET",
-      data: {
-        offset: 0
+    try {
+      wx.showLoading({
+        title: '正在加载中',
+      })
+      let result = await request({
+        url: "/top/artists",
+        method: "GET",
+        data: {
+          offset: 0
+        }
+      })
+      if(result.code === 200){
+        this.setData({
+          artists: result.artists
+        })
+      }else{
+        wx.showToast({
+          title: '异常错误',
+        })
       }
-    })
-    if(result.code === 200){
-      wx.stopPullDownRefresh({
-        success: (res) => {},
-      })
-      this.setData({
-        artists: result.artists
-      })
-    }else{
+    } catch (error) {
       wx.showToast({
         title: '异常错误',
       })
-    }
-    
+    }finally {
+      wx.hideLoading()
+    } 
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

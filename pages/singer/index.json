@@ -2,5 +2,6 @@
   "usingComponents": {
     "scrollXCom": "../../component/scroll/scroll",
     "scrollYCom": "../../component/scrollY/scrollY"
-  }
+  },
+  "enablePullDownRefresh": false
 }

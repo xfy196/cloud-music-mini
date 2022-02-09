@@ -21,5 +21,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    handleToSongList(e){
+      console.log(e.currentTarget.dataset.id)
+      wx.navigateTo({
+        url: '/pages/singerSongList/index?id='+e.currentTarget.dataset.id,
+      })
+    }
   }
 })

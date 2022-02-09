@@ -1,4 +1,7 @@
 <view class="container">
+  <view class="ld ld-hourglass ld-spin-fast"
+     style="font-size:64px;color:#8da">
+  </view>
   <view class="swiperBox">
     <view class="swiperWrapperBackground">
     <swiper

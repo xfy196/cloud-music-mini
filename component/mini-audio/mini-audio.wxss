@@ -1,6 +1,4 @@
 @import "../../assets/iconfont/iconfont.wxss";
-@import "../../assets/style/animate.min.wxss";
-
 .audio{
   width: 100%;
   position: absolute;

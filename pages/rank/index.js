@@ -17,29 +17,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    let result = await request({
-      url: "/toplist/detail",
-      method: "GET"
-    })
-    if (result.code == 200) {
-      let index = this.findIndex(result.list)
-      let officalList = result.list.slice(0, index)
-      let globalList = result.list.slice(index)
-      let diff = 3 - globalList.length % 3
-      for (let i = 0; i < diff; i++) {
-        globalList.push({})
+    try {
+      wx.showLoading({
+        title: '正在加载中',
+      })
+      let result = await request({
+        url: "/toplist/detail",
+        method: "GET"
+      })
+      if (result.code == 200) {
+        let index = this.findIndex(result.list)
+        let officalList = result.list.slice(0, index)
+        let globalList = result.list.slice(index)
+        let diff = 3 - globalList.length % 3
+        for (let i = 0; i < diff; i++) {
+          globalList.push({})
+        }
+        this.setData({
+          officalList,
+          globalList,
+          audioPlay: app.globalData.audioPlay,
+          showMiniPlay: app.globalData.showMiniPlay,
+          playObj: app.globalData.playObj
+        })
+      } else {
+        wx.showToast({
+          title: '异常错误，请重试',
+        })
       }
-      this.setData({
-        officalList,
-        globalList,
-        audioPlay: app.globalData.audioPlay,
-        showMiniPlay: app.globalData.showMiniPlay,
-        playObj: app.globalData.playObj
-      })
-    } else {
+    } catch (error) {
       wx.showToast({
-        title: '异常错误，请重试',
+        title: error.message || "服务器异常",
       })
+    }finally {
+      wx.hideLoading()
     }
   },
   /**

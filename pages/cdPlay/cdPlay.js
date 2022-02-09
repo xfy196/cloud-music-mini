@@ -11,7 +11,8 @@ Page({
     statusbarHeight: app.globalData.statusbarHeight,
     id: null,
     lyric: null,
-    navHiiden: true
+    navHiiden: true,
+    audioPlay: false
   },
 
   /**
@@ -19,7 +20,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      song: app.globalData.playObj
+      song: app.globalData.playObj,
+      audioPlay: app.globalData.audioPlay
     })
     this.setData({
       id: options.id
