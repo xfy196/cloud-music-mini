@@ -1,6 +1,7 @@
 // pages/singer/index.js
 const request = require("../../utils/requets")
 const {alphaTypes, categoryTypes}  = require("../../config/config")
+const { times } = require("underscore")
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
    */
   data: {
     artists: [],
+    more: true,
     alphaTypes: [],
     categoryTypes: {}
   },
@@ -37,7 +39,8 @@ Page({
       })
       if(result.code === 200){
         this.setData({
-          artists: result.artists
+          artists: result.artists,
+          more: result.more
         })
       }else{
         wx.showToast({
@@ -72,7 +75,45 @@ Page({
   onHide: function () {
 
   },
-
+  async handleListScroll(){
+    // 触底操作我们需要请求数据了
+    if(this.data.more){
+      // 如果有更多我们需要请求数据
+      let offset = this.data.artists.length
+      try {
+        wx.showLoading({
+          title: '正在加载中',
+        })
+        let result = await request({
+          url: "/top/artists",
+          method: "GET",
+          data: {
+            offset
+          }
+        })
+        if(result.code === 200){
+          this.setData({
+            artists: [...this.data.artists, ...result.artists],
+            more: result.more
+          })
+        }else{
+          wx.showToast({
+            title: '异常错误',
+          })
+        }
+      } catch (error) {
+        wx.showToast({
+          title: '异常错误',
+        })
+      }finally {
+        wx.hideLoading()
+      } 
+    }else {
+      wx.showToast({
+        title: '没有更多了',
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面卸载
    */
@@ -91,7 +132,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
   },
 
   /**

@@ -28,8 +28,12 @@
         </view>
       </view>
       <view class="cd__content">
-      <view class="cd_img">
-      <cover-image class="music__bg-img" src="{{song.al.picUrl}}"></cover-image>
+      <view class="cd_box">
+      <view class="cd_img {{audioPlay ? '': 'animate-stop'}}">
+      <image class="music__bg-img" src="{{song.al.picUrl}}"></image>
+      </view>
+      <image catchtap="handleSongPlay" class="cd_img_opicon" wx:if="{{audioPlay}}" src="../../assets/cd_pause.png"></image>
+      <image catchtap="handleSongPlay" class="cd_img_opicon" wx:else src="../../assets/cd_play.png"></image>
       </view>
       </view>
     </view>

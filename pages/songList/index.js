@@ -66,6 +66,9 @@ Page({
           })
         }
       }
+      wx.setNavigationBarTitle({
+        title: this.data.detail.playlist.name,
+      })
     } catch (error) {
       wx.showToast({
         title: '异常错误',

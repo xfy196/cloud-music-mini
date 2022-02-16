@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "miniAudio": "../../component/mini-audio/mini-audio"
+  },
+  "backgroundColor": "#d44439"
 }

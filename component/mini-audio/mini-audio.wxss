@@ -9,6 +9,7 @@
   background: #ffffff;
   justify-content: space-between;
   z-index: 10;
+  box-shadow: 0px 12px 44px 0px rgba(212,68,57,0.4);
 }
 .audio .left_wrapper{
   height: 100%;

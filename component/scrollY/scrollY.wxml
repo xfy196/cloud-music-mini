@@ -3,6 +3,7 @@ class="scrollContainer"
 style="height:{{height}}"
 scroll-with-animation="true"
 enhanced="true"
+bindscrolltolower="handleScrollBottom"
 scroll-y="{{scrollY}}"
 >
     <view class="sItem" bindtap="handleToSongList" data-id="{{item.id}}" wx:for="{{list}}" wx:key="*this">

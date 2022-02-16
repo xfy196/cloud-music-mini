@@ -34,7 +34,8 @@
   margin-left: 40rpx;
 }
 .hotSearch{
-  margin: 0 40rpx 40rpx 40rpx;
+  padding: 0 40rpx 40rpx 40rpx;
+  box-sizing: border-box;
 }
 .hotSearch .headTitle {
   padding-top: 70rpx;

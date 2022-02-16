@@ -1,2 +1,40 @@
-<!--pages/singerSongList/index.wxml-->
-<text>pages/singerSongList/index.wxml</text>
+<wxs module="moduleName">
+  function handleName(list){
+    var str = "";
+    list.map(function(item, index) {
+      str += index === 0 ? item.name : "/" + item.name;
+      return item;
+    });
+    return str;
+  }
+  module.exports = {handleGetName: handleName}
+</wxs>
+<view class="container {{audioPlay ? 'cdPaddingBottom' : ''}}">
+<view style="background-image: url({{artist.picUrl}})" class="header-img">
+<view class="collection__btn">
+  <text class="iconfont icon-tianjia"></text>
+  <view class="collection__btn__txt">收藏</view>
+</view>
+</view>
+<view class="list-wrapper">
+  <div class="head">
+    <text class="iconfont icon-bofang"></text>
+    <view class="title">
+      <text>播放全部</text>
+      <text>(共{{songs.length}}首)</text>
+    </view>
+  </div>
+  <view class="list">
+    <view data-song="{{item}}" bindtap="handlePlaySong" class="list-item" wx:for="{{songs}}" wx:key="{{item.id}}">
+      <text class="seriml">{{index + 1}}</text>
+      <view class="song__info">
+        <text class="songname ellipsis">{{item.name}}</text>
+        <text class="auhtor ellipsis">
+          {{item.ar ? moduleName.handleGetName(item.ar) : moduleName.handleGetName(item.artists)}} - {{item.al ? item.al.name : item.album.name}}
+        </text>
+      </view>
+    </view>
+  </view>
+</view>
+<miniAudio wx:if="{{showMiniPlay}}" audioPlay="{{audioPlay}}" playObj="{{playObj}}"></miniAudio>
+</view>

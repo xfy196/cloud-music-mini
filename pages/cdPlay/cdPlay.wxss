@@ -55,13 +55,16 @@
   height: 100%;
   position: relative;
 }
+.cd_box {
+  position: relative;height:480rpx;
+  top: 80rpx;
+}
 .cd_img{
   border: 4px solid #cccccc;
   border-radius: 100%;
   width: 480rpx;
   height: 480rpx;
   position: absolute;
-  top: 80rpx;
   left: calc((100vw - 480rpx) / 2);
   box-sizing: border-box;
   overflow: hidden;
@@ -73,10 +76,21 @@
   justify-content: center;
   align-items: center;
 }
+.cd_img.animate-stop{
+  animation-play-state: paused;
+}
 .cd_img .music__bg-img {
   width: 68%;
   height: 68%;
   border-radius: 100%;
+}
+.cd_img_opicon{
+  position: absolute;
+  width: 96rpx;
+  height: 96rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
 }
 @keyframes rotate {
   0%{

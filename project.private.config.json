@@ -53,6 +53,12 @@
           "pathName": "pages/cdPlay/cdPlay",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/singerSongList/index",
+          "pathName": "pages/singerSongList/index",
+          "query": "id=2116",
+          "scene": null
         }
       ]
     }

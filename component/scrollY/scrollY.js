@@ -26,6 +26,9 @@ Component({
       wx.navigateTo({
         url: '/pages/singerSongList/index?id='+e.currentTarget.dataset.id,
       })
+    },
+    handleScrollBottom(){
+      this.triggerEvent("handleListScroll")
     }
   }
 })

@@ -21,14 +21,27 @@ Page({
   onLoad: function (options) {
     this.setData({
       song: app.globalData.playObj,
-      audioPlay: app.globalData.audioPlay
-    })
-    this.setData({
+      audioPlay: app.globalData.audioPlay,
       id: options.id
     })
     this.getLyricRequest(this.data.id)
   },
-
+  handleSongPlay(){
+    if(this.data.audioPlay){
+      app.globalData.backgroudAudioManager.pause()
+      app.globalData.audioPlay = false
+      this.setData({
+        audioPlay: false
+      })
+    }else {
+    // app.globalData.backgroudAudioManager.src =  `https://music.163.com/song/media/outer/url?id=${this.data.song.id}.mp3`
+    app.globalData.backgroudAudioManager.play()   
+    app.globalData.audioPlay = true
+    this.setData({
+      audioPlay: true
+    })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

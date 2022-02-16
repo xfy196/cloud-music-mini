@@ -48,7 +48,7 @@ Component({
           audioPlay: false
         })
       }else {
-      app.globalData.backgroudAudioManager.src =  `https://music.163.com/song/media/outer/url?id=${this.data.playObj.id}.mp3`
+      // app.globalData.backgroudAudioManager.src =  `https://music.163.com/song/media/outer/url?id=${this.data.playObj.id}.mp3`
       app.globalData.backgroudAudioManager.play()   
       app.globalData.audioPlay = true
       this.setData({
@@ -73,12 +73,12 @@ Component({
       })
       app.globalData.backgroudAudioManager.onStop(() => {
         app.globalData.audioPlay = false
-        this.triggerEvent("handleChangeAudioPlay", {
-          audioPlay: false
-        })
         this.setData({
           audioPlay: false
         })
+      })
+      app.globalData.backgroudAudioManager.onEnded(() => {
+        console.log("音乐播放结束")
       })
     }
   }

@@ -1,1 +1,91 @@
 /* pages/singerSongList/index.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.header-img{
+  width: 100%;
+  padding-top: 75%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.collection__btn{
+  width: 240rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  background-color: #d44439;
+  border-radius: 40rpx;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.collection__btn .icon-tianjia {
+  font-size: 24rpx;
+  color: #fff;
+}
+.collection__btn .collection__btn__txt {
+  font-size: 28rpx;
+  letter-spacing: 20rpx;
+  color: #fff;
+  margin-left: 20rpx;
+}
+.list-wrapper{
+  flex: 1;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background-color: white;
+  margin-top: -20rpx;
+  z-index: 10;
+}
+.list-wrapper .head {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #e4e4e4;
+}
+.list-wrapper .head .icon-bofang {
+  font-size: 48rpx;
+}
+.list-wrapper .head .title{
+  margin-left: 10rpx;
+}
+.list-wrapper .head .title text:first-of-type{
+  font-size: 32rpx;
+}
+.list-wrapper .head .title text:last-of-type{
+  font-size: 24rpx;
+  color: #bba8a8;
+  margin-left: 4rpx;
+}
+.list .list-item {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+}
+.list .list-item .seriml{
+  width: 120rpx;
+  height: 100%;
+  text-align: center;
+  line-height: 120rpx;
+}
+.list .list-item .song__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.list .list-item .song__info .songname {
+  color: #2E3030;
+}
+.list .list-item .song__info .auhtor{
+  font-size: 24rpx;
+  line-height: 1;
+  color: #bba8a8;
+}
