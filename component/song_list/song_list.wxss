@@ -1,4 +1,5 @@
 @import "../../assets/iconfont/iconfont.wxss";
+@import "../../assets/style/base.wxss";
 .songListContainer{
   height: 100%;
   background: #f2f3f4;

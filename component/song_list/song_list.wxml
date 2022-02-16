@@ -16,7 +16,7 @@
   }
   module.exports = {handleGetName: handleName}
 </wxs>
-<view class="songListContainer">
+<view class="songListContainer {{showMiniPlay ? 'cdPaddingBottom' : ''}}">
   <view class="headBox">
     <view style="background: url({{detail.playlist.coverImgUrl}}); background-size: 100% 100%;" class="background"></view>
     <view class="img_wrapper">

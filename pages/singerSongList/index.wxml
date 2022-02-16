@@ -9,7 +9,7 @@
   }
   module.exports = {handleGetName: handleName}
 </wxs>
-<view class="container {{audioPlay ? 'cdPaddingBottom' : ''}}">
+<view class="container {{showMiniPlay ? 'cdPaddingBottom' : ''}}">
 <view style="background-image: url({{artist.picUrl}})" class="header-img">
 <view class="collection__btn">
   <text class="iconfont icon-tianjia"></text>

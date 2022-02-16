@@ -6,7 +6,7 @@ Component({
    */
   properties: {
     detail: Object,
-    showMiniPlay: Boolean
+    showMiniPlay: Boolean,
   },
 
   /**
