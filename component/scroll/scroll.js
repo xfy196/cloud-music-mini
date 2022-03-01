@@ -7,7 +7,8 @@ Component({
     scrollX: Boolean,
     scrollY: Boolean,
     list: Array,
-    title: String
+    title: String,
+    currentKey: String
   },
   ready(){
   },
@@ -23,5 +24,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    handleClick(e){
+      let {cate} = e.currentTarget.dataset
+      this.triggerEvent("handleSelectCate", cate)
+    }
   }
 })

@@ -14,8 +14,9 @@
   padding: 10rpx 10rpx;
   border-radius: 20rpx;
 }
-.sItem.sleccted{
+.sItem.selected{
   color: #d44439;
   border: 1px solid #d44439;
   opacity: 0.8;
+  padding: 8rpx 8rpx;
 }

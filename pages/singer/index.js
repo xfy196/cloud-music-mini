@@ -1,7 +1,6 @@
 // pages/singer/index.js
 const request = require("../../utils/requets")
 const {alphaTypes, categoryTypes}  = require("../../config/config")
-const { times } = require("underscore")
 Page({
 
   /**
@@ -11,7 +10,15 @@ Page({
     artists: [],
     more: true,
     alphaTypes: [],
-    categoryTypes: {}
+    categoryTypes: {},
+    cateKey: '',
+    alphaKey: '',
+    aListQuery: {
+      type: 0,
+      area: 0,
+      initial: '' ,
+      offset: 0
+    }
   },
 
   /**
@@ -25,18 +32,28 @@ Page({
     this.initRequest()
   },
 
+  // 初始化数据
   async initRequest(){
     try {
       wx.showLoading({
         title: '正在加载中',
       })
-      let result = await request({
-        url: "/top/artists",
-        method: "GET",
-        data: {
-          offset: 0
-        }
-      })
+      let result;
+      if(!(this.data.cateKey || this.data.alphaKey)){
+        result = await request({
+          url: "/top/artists",
+          method: "GET",
+          data: {
+            offset: 0
+          }
+        })
+      }else {
+        result = await request({
+          url: '/artist/list',
+          method: "GET",
+          data: this.data.aListQuery
+        })
+      }
       if(result.code === 200){
         this.setData({
           artists: result.artists,
@@ -48,12 +65,42 @@ Page({
         })
       }
     } catch (error) {
+      console.log(error)
       wx.showToast({
         title: '异常错误',
       })
     }finally {
       wx.hideLoading()
     } 
+  },
+
+  // 处理点击分类
+  async handleSelectCate(data){
+    let cate = data.detail
+    if(cate.hasOwnProperty('type') && cate.hasOwnProperty('area')){
+      this.setData({
+        cateKey: `${cate.type}-${cate.area}-${cate.key}`,
+        aListQuery: {
+          ...this.data.aListQuery,
+          type: cate.type,
+          area: cate.area,
+          offset: 0
+        }
+      })
+    }else {
+      this.setData({
+        alphaKey: cate.key,
+        aListQuery: {
+          ...this.data.aListQuery,
+          initial: cate.key,
+          offset: 0
+        }
+      })
+    }
+    this.setData({
+      artists: []
+    })
+    await this.initRequest()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -84,13 +131,29 @@ Page({
         wx.showLoading({
           title: '正在加载中',
         })
-        let result = await request({
-          url: "/top/artists",
-          method: "GET",
-          data: {
-            offset
-          }
-        })
+        let result;
+        if(!(this.data.cateKey || this.data.alphaKey)){
+          result = await request({
+            url: "/top/artists",
+            method: "GET",
+            data: {
+              offset
+            }
+          })
+        }else {
+          this.setData({
+            aListQuery: {
+              ...this.data.aListQuery,
+              offset
+            }
+          })
+          result = await request({
+            url: '/artist/list',
+            method: "GET",
+            data: this.data.aListQuery
+          })
+        }
+       
         if(result.code === 200){
           this.setData({
             artists: [...this.data.artists, ...result.artists],

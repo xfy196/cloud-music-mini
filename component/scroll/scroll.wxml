@@ -1,12 +1,10 @@
-<scroll-view
-scroll-x="{{scrollX}}"
-class="scrollContainer"
-enhanced="true"
->
-<view class="scrollBox">
-  <view class="sTitle sItem">{{title}}</view>
-  <view class="sItem" wx:for="{{list}}" wx:key="key">
-    {{item.name}}
+<scroll-view scroll-x="{{scrollX}}" class="scrollContainer" enhanced="true">
+  <view class="scrollBox">
+    <view class="sTitle sItem">{{title}}</view>
+    <view bindtap="handleClick" data-cate="{{item}}"
+      class="sItem {{currentKey === (item.type && item.area ? item.type+'-'+item.area+'-'+item.key : item.key) ? 'selected': '' }}"
+      wx:for="{{list}}" wx:key="key">
+      {{item.name}}
+    </view>
   </view>
-</view>
 </scroll-view>

@@ -1,5 +1,5 @@
 <view class="container">
-  <scrollXCom scrollX="true" title="分类(默认分类):" list="{{categoryTypes}}"></scrollXCom>
-  <scrollXCom scrollX="true" title="首字母:" list="{{alphaTypes}}"></scrollXCom>
+  <scrollXCom currentKey="{{cateKey}}" bind:handleSelectCate="handleSelectCate" scrollX="true" title="分类(默认分类):" list="{{categoryTypes}}"></scrollXCom>
+  <scrollXCom bind:handleSelectCate="handleSelectCate"  currentKey="{{alphaKey}}" scrollX="true" title="首字母:" list="{{alphaTypes}}"></scrollXCom>
   <scrollYCom scrollY="true" bind:handleListScroll="handleListScroll" height="calc(100% - 120rpx)" list="{{artists}}"></scrollYCom>
 </view>
