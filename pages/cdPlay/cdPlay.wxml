@@ -1,6 +1,6 @@
 <wxs module="moduleName">
   function handleName(list) {
-    if(!list) return ""
+    if (!list) return ""
     var str = "";
     !!list.length ? list.map(function (item, index) {
       str += index === 0 ? item.name : "/" + item.name;
@@ -11,7 +11,7 @@
   module.exports = { handleGetName: handleName }
 </wxs>
 <view class="container">
-<view class="background" style="background-image: url({{song.al.picUrl}});"></view>
+  <view class="background" style="background-image: url({{song.al.picUrl}});"></view>
   <view class='nav' style='height:{{navH}}px;padding-top: {{statusbarHeight}}px;'>
     <view hidden="{{navHiiden}}" class='nav-title'>
       {{song.name}}
@@ -28,13 +28,15 @@
         </view>
       </view>
       <view class="cd__content">
-      <view class="cd_box">
-      <view class="cd_img {{audioPlay ? '': 'animate-stop'}}">
-      <image class="music__bg-img" src="{{song.al.picUrl}}"></image>
-      </view>
-      <image catchtap="handleSongPlay" class="cd_img_opicon" wx:if="{{audioPlay}}" src="../../assets/cd_pause.png"></image>
-      <image catchtap="handleSongPlay" class="cd_img_opicon" wx:else src="../../assets/cd_play.png"></image>
-      </view>
+      <!-- cd针头 -->
+      <image src="../../assets/needle.png" class="needle {{audioPlay ? '' : 'pause'}}"></image>
+        <view class="cd_box">
+          <view class="cd_img {{audioPlay ? '': 'animate-stop'}}">
+            <image class="music__bg-img" src="{{song.al.picUrl}}"></image>
+          </view>
+          <image catchtap="handleSongPlay" class="cd_img_opicon" wx:if="{{audioPlay}}" src="../../assets/cd_pause.png"></image>
+          <image catchtap="handleSongPlay" class="cd_img_opicon" wx:else src="../../assets/cd_play.png"></image>
+        </view>
       </view>
     </view>
   </scroll-view>
